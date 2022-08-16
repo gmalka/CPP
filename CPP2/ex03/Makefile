@@ -1,0 +1,22 @@
+NAME		=	Fixed
+
+SRC			=	Fixed.cpp Point.cpp main.cpp bsp.cpp
+
+OBJ			=	$(SRC:.cpp=.o)
+
+FLAG		=	-Wall -Wextra -Werror -std=c++98
+
+.PHONY		:	all clean fclean re
+
+all			:	$(NAME)
+
+$(NAME)		:	$(OBJ) Fixed.hpp Point.hpp
+	c++ $(FLAG) $(OBJ) -o $(NAME)
+
+clean		:
+	@rm -f $(OBJ)
+
+fclean		:	clean
+	@rm -f $(NAME)
+
+re			:	fclean all
